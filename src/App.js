@@ -7,7 +7,6 @@ import NotFound404 from './components/NotFound404';
 function App() {
   return (
     <div className="App">
-      <h1>Bite</h1>
       <Switch>
         <Route exact path="/">
           <Landing />
