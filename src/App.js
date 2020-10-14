@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import 'semantic-ui-css/semantic.min.css'
+import 'semantic-ui-less/semantic.less'
 import Landing from './components/Landing';
 import NotFound404 from './components/NotFound404';
 

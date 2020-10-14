@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Container, Grid, Divider, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Grid, Image, Message, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 const Landing = () => {
@@ -8,15 +8,18 @@ const Landing = () => {
       <Segment basic>
         <Image src="/images/bite-logo.png" size="medium" centered />
       </Segment>
-      <Divider />
       <Message>
         <Message.Header>Welcome!</Message.Header>
         <p>Are you a Vendor or a Patron?</p>
       </Message>
-      <div>
-        <Button primary fluid as={Link} to="/vendor">I'm a Vendor</Button>
-        <Button fluid as={Link} to="/patron">I'm a Patron</Button>
-      </div>
+      <Grid padded>
+        <Grid.Row>
+          <Button primary fluid as={Link} to="/patron">I'm a Patron</Button>
+        </Grid.Row>
+        <Grid.Row>
+          <Button basic fluid color="pink" as={Link} to="/vendor">I'm a Vendor</Button>
+        </Grid.Row>
+      </Grid>
     </Segment >
   )
 }
