@@ -1,6 +1,5 @@
 import React from 'react'
-import { Button, Grid, Image, Message, Segment } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Image, Segment } from 'semantic-ui-react'
 
 const LandingLayout = ({ children }) => {
   return (
