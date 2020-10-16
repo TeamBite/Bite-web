@@ -7,13 +7,11 @@ const PatonLogin = () => {
   const location = useLocation()
 
   const handleLogIn = () => {
-    // history.push(`${location.pathname}/code-verification`)
-    history.push(`/patron/code-verification`)
+    history.push(`${location.pathname}/code-verification`)
   }
 
   const handleCreateAccount = () => {
-    // history.push(`${location.pathname}/diet-preferences`)
-    history.push(`/patron/diet-preferences`)
+    history.push(`${location.pathname}/diet-preferences`)
   }
 
   console.log('PatronLogin location.pathname', location.pathname)
