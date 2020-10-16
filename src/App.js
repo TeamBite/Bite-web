@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import 'semantic-ui-less/semantic.less'
 import Landing from './components/Landing';
 import NotFound404 from './components/NotFound404';
+import PatronRouter from './routers/PatronRouter';
 
 function App() {
   return (
@@ -11,7 +12,10 @@ function App() {
         <Route exact path="/">
           <Landing />
         </Route>
-        <Route>
+        <Route path="/patron">
+          <PatronRouter />
+        </Route>
+        <Route >
           <NotFound404 />
         </Route>
       </Switch>
