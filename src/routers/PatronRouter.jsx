@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import PatonLogin from '../components/PatronLogin'
 import LandingLayout from '../components/LandingLayout'
 import VerificationCodeForm from '../components/Patron/VerificationCodeForm'
+import DietPreferencesForm from '../components/Patron/DietPreferencesForm'
 import NotFound404 from '../components/NotFound404'
 
 const PatonRouter = () => {
@@ -14,7 +15,7 @@ const PatonRouter = () => {
           <VerificationCodeForm />
         </Route>
         <Route path={`${path}/diet-preferences`}>
-          <p> diet-preferences</p>
+          <DietPreferencesForm />
         </Route>
         <Route exact path={path}>
           <PatonLogin />
