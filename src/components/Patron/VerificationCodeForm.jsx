@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Message } from 'semantic-ui-react'
 
-const PatonLogin = () => {
+const VerificationCodeForm = () => {
 
   const handleSubmit = () => {
     alert('verifying code')
@@ -21,4 +21,4 @@ const PatonLogin = () => {
   )
 }
 
-export default PatonLogin
+export default VerificationCodeForm;
