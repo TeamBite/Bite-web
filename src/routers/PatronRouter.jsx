@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import PatonLogin from '../components/PatronLogin'
 import LandingLayout from '../components/LandingLayout'
+import VerificationCodeForm from '../components/Patron/VerificationCodeForm'
 import NotFound404 from '../components/NotFound404'
 
 const PatonRouter = () => {
@@ -10,7 +11,7 @@ const PatonRouter = () => {
     <LandingLayout>
       <Switch>
         <Route path={`${path}/code-verification`}>
-          <p> code-verification</p>
+          <VerificationCodeForm />
         </Route>
         <Route path={`${path}/diet-preferences`}>
           <p> diet-preferences</p>
