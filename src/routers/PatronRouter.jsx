@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import PatonLogin from '../components/PatronLogin'
 import LandingLayout from '../components/LandingLayout'
+import NotFound404 from '../components/NotFound404'
 
 const PatonRouter = () => {
   const path = '/patron'
@@ -17,6 +18,7 @@ const PatonRouter = () => {
         <Route exact path={path}>
           <PatonLogin />
         </Route>
+        <NotFound404 />
       </Switch>
     </LandingLayout >
   )
