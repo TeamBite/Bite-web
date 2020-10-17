@@ -4,6 +4,7 @@ import 'semantic-ui-less/semantic.less'
 import Landing from './components/Landing';
 import NotFound404 from './components/NotFound404';
 import PatronRouter from './routers/PatronRouter';
+import VendorsRouter from './routers/VendorsRouter';
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
         </Route>
         <Route path="/patron">
           <PatronRouter />
+        </Route>
+        <Route path="/vendors">
+          <VendorsRouter />
         </Route>
         <Route >
           <NotFound404 />
