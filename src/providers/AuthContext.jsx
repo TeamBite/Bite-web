@@ -4,7 +4,7 @@ import firebase from '../firebase';
 export const AuthContext = createContext()
 
 const AuthProvider = ({ children }) => {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [currentUser, setCurrentUser] = useState(null)
 
   const updateUser = (user) => {
