@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import LandingLayout from '../components/LandingLayout'
 import VerificationCodeForm from '../components/Patron/VerificationCodeForm'
 import NotFound404 from '../components/NotFound404'
-import PatronContainer from '../containers/PatronAuth'
+import PatronAuth from '../containers/PatronAuth'
 
 const PatonRouter = () => {
   const path = '/patron'
@@ -14,7 +14,7 @@ const PatonRouter = () => {
           <VerificationCodeForm />
         </Route>
         <Route path={path}>
-          <PatronContainer />
+          <PatronAuth />
         </Route>
         <NotFound404 />
       </Switch>

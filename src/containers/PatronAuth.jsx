@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Switch, Route, Link, useHistory, useLocation, useRouteMatch } from 'react-router-dom'
-import { Form, Message, Button } from 'semantic-ui-react'
-import DietPreferencesForm from '../components/Patron/DietPreferencesForm'
+import { useHistory, useLocation } from 'react-router-dom'
+import { Form, Message } from 'semantic-ui-react'
 
 import firebase from '../firebase'
 import { logInPatron } from '../firebase/auth'
 
-const PatronContainer = () => {
-  const path = useRouteMatch('/patron').path
-  const dietPrefsRouteMatch = useRouteMatch('/patron/diet-preferences')
+const PatronAuth = () => {
   const history = useHistory()
   const location = useLocation()
   const [phoneNumber, setPhoneNumber] = useState("")
@@ -20,15 +17,10 @@ const PatronContainer = () => {
       title: "Error",
       details: error.message
     }
-  } else if (dietPrefsRouteMatch) {
-    message = {
-      title: "Dietary Preferences & Allergies",
-      details: "Please specify any dietary preferences you may have"
-    }
   } else {
     message = {
       title: "Patron Login",
-      details: "Please enter your phone number"
+      details: "Please enter your phone number. This will log you in or sign you up if you do not have an account."
     }
   }
 
@@ -47,7 +39,8 @@ const PatronContainer = () => {
 
   useEffect(() => {
     // Setup recaptcha
-    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', { size: 'invisible' })
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('login-btn', { size: "invisible" })
+    window.recaptchaVerifier.render()
   }, [])
 
   return (
@@ -68,22 +61,12 @@ const PatronContainer = () => {
           onChange={e => setPhoneNumber(e.target.value)}
         />
 
-        <Switch>
-          <Route exact path={path}>
-            <Form.Button primary fluid id="login-btn" onClick={handleLogIn} >
-              Login
-            </Form.Button>
-            <Button as={Link} secondary fluid to={`${path}/diet-preferences`}>
-              Create Account
-            </Button>
-          </Route>
-          <Route path={`${path}/diet-preferences`}>
-            <DietPreferencesForm />
-          </Route>
-        </Switch>
+        <Form.Button primary fluid id="login-btn" onClick={handleLogIn} >
+          Enter
+        </Form.Button>
       </Form>
     </ >
   )
 }
 
-export default PatronContainer
+export default PatronAuth
