@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { Header } from 'semantic-ui-react'
+import { CardGroup, Header, Segment } from 'semantic-ui-react'
 import store from '../firebase/store'
 import VendorCard from '../components/Vendors/VendorCard'
 
@@ -15,12 +15,13 @@ const Vendors = () => {
 
     getAllVendors()
   }, [])
-  console.log('vendors', vendors)
   return (
-    <div>
+    <Segment style={{ minHeight: '100vh' }}>
       <Header>Vendors</Header>
-      {vendors.map(vendor => <VendorCard vendor={vendor} />)}
-    </div>
+      <CardGroup itemsPerRow={2}>
+        {vendors.map(vendor => <VendorCard key={vendor.id} vendor={vendor} />)}
+      </CardGroup>
+    </Segment>
   )
 }
 
