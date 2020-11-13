@@ -15,6 +15,16 @@ export const Vendors = {
     } catch (err) {
       console.error(err)
     }
+  },
+
+  getById: async (id) => {
+    try {
+      let docSnapshot = await db.collection('venues').doc(id).get()
+      let doc = docSnapshot.data()
+      return doc
+    } catch (err) {
+      console.log('err', err)
+    }
   }
 }
 
