@@ -15,7 +15,7 @@ const VendorPage = ({ id }) => {
       }
     }
     getVendor()
-  }, [])
+  }, [id])
   if (vendor) {
     return (
       <div>
