@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { Segment, Header, Image, Icon, Divider } from 'semantic-ui-react'
 import store from '../firebase/store'
-
 const VendorPage = ({ id }) => {
   const [vendor, setVendor] = useState(null)
 
@@ -18,9 +18,20 @@ const VendorPage = ({ id }) => {
   }, [id])
   if (vendor) {
     return (
-      <div>
-        <h1>{vendor.name}</h1>
-      </div>
+      <Segment>
+        <Segment>
+          <Header>{vendor.name}</Header>
+          <Image src={vendor.venueImage} />
+        </Segment>
+        <Segment>
+          <Icon name="map pin" />
+          <a href={`https://maps.google.com/?q=${vendor.name} ${vendor.address}`}>{vendor.address}</a>
+          <Divider />
+          <Icon name="phone" />
+          <a href={`tel:${vendor.phoneNumber}`}>{vendor.phoneNumber}</a>
+        </Segment>
+
+      </Segment>
     )
   } else {
     return (<p>Loading...</p>)
