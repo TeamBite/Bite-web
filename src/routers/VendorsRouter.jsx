@@ -1,18 +1,21 @@
 import React, { useContext } from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route, Redirect, useRouteMatch } from 'react-router-dom'
 import { AuthContext } from '../providers/AuthContext'
 import Vendors from '../containers/Vendors'
+import VendorRouter from './VendorRouter'
 import NotFound404 from '../components/NotFound404'
 
 const VendorsRouter = () => {
-  const path = '/vendors'
+  const { url } = useRouteMatch('/vendors')
   const { currentUser } = useContext(AuthContext)
-  console.log('currentUser', currentUser)
   if (currentUser) {
     return (
       <Switch>
-        <Route exact path={path}>
+        <Route exact path={url}>
           <Vendors />
+        </Route>
+        <Route exact path={`${url}/:id`}>
+          <VendorRouter />
         </Route>
         <NotFound404 />
       </Switch>
