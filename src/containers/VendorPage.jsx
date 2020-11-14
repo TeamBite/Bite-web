@@ -34,9 +34,9 @@ const VendorPage = ({ id }) => {
 
         <Segment>
           <Header as="h2">Offers</Header>
-          {vendor.offers.map(offer => (
-            <List key={offer.offerId}>
-              <List.Item>
+          <List divided >
+            {vendor.offers.map(offer => (
+              <List.Item key={offer.offerId}>
                 <Image className="offer-thumbnail-img" src={offer.offerImage} />
                 <List.Content>
                   <List.Header>{offer.nameOfOffer}</List.Header>
@@ -46,8 +46,8 @@ const VendorPage = ({ id }) => {
                     </List.Description>
                 </List.Content>
               </List.Item>
-            </List>
-          ))}
+            ))}
+          </List>
         </Segment>
       </Segment>
     )
