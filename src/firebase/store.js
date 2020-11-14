@@ -19,9 +19,16 @@ export const Vendors = {
 
   getById: async (id) => {
     try {
-      let docSnapshot = await db.collection('venues').doc(id).get()
-      let doc = docSnapshot.data()
-      return doc
+      let docRef = db.collection('venues').doc(id)
+      let doc = (await docRef.get()).data()
+
+      let offersRef = await docRef.collection('offers').get()
+      let offers = offersRef.docs.map(doc => doc.data())
+
+      return {
+        ...doc,
+        offers
+      }
     } catch (err) {
       console.log('err', err)
     }
