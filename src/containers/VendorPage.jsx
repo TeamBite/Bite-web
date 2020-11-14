@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { Segment, Header, Image, Icon, Divider } from 'semantic-ui-react'
+import { Segment, Header, Image, Icon, Divider, List } from 'semantic-ui-react'
+import './VendorPage.css'
 import store from '../firebase/store'
 const VendorPage = ({ id }) => {
   const [vendor, setVendor] = useState(null)
@@ -18,10 +19,10 @@ const VendorPage = ({ id }) => {
   }, [id])
   if (vendor) {
     return (
-      <Segment>
+      <Segment className="page-container">
         <Segment>
-          <Header>{vendor.name}</Header>
-          <Image src={vendor.venueImage} />
+          <Header as="h1">{vendor.name}</Header>
+          <Image className="vendor-img" src={vendor.venueImage} />
         </Segment>
         <Segment>
           <Icon name="map pin" />
@@ -31,6 +32,23 @@ const VendorPage = ({ id }) => {
           <a href={`tel:${vendor.phoneNumber}`}>{vendor.phoneNumber}</a>
         </Segment>
 
+        <Segment>
+          <Header as="h2">Offers</Header>
+          {vendor.offers.map(offer => (
+            <List key={offer.offerId}>
+              <List.Item>
+                <Image className="offer-thumbnail-img" src={offer.offerImage} />
+                <List.Content>
+                  <List.Header>{offer.nameOfOffer}</List.Header>
+                  <List.Description>
+                    <Icon name="food" />
+                    {offer.remainingMeals} meals remaining
+                    </List.Description>
+                </List.Content>
+              </List.Item>
+            </List>
+          ))}
+        </Segment>
       </Segment>
     )
   } else {

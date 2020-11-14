@@ -1,0 +1,15 @@
+.page-container {
+   min-height: 100vh;
+}
+
+.vendor-img {
+  width: 100vw;
+  height: 33.33vh;
+  object-fit: cover;
+}
+
+.offer-thumbnail-img {
+  width: 40%;
+  height: 80px;
+  object-fit: cover;
+}
