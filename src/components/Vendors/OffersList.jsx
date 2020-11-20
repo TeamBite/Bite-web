@@ -1,22 +1,27 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { List, Image, Message, Header, Icon } from 'semantic-ui-react'
 
-const OffersList = ({ offers }) => {
+const OffersList = ({ vendorId, offers }) => {
   const Offers = () => (
     <List divided >{
       offers.map(offer => (
-        <List.Item key={offer.offerId}>
-          <Image className="offer-thumbnail-img" src={offer.offerImage} />
-          <List.Content>
-            <List.Header>{offer.nameOfOffer}</List.Header>
-            <List.Description>
-              <Icon name="food" /> {offer.remainingMeals} meals remaining
+        <Link
+          to={`/vendors/${vendorId}/offers/${offer.offerId}`}
+          key={offer.offerId}
+        >
+          <List.Item >
+            <Image className="item__img" src={offer.offerImage} />
+            <List.Content className="item__content">
+              <List.Header className="item__header">{offer.nameOfOffer}</List.Header>
+              <List.Description>
+                <Icon name="food" /> {offer.remainingMeals} meals remaining
             </List.Description>
-          </List.Content>
-        </List.Item>
+            </List.Content>
+          </List.Item>
+        </Link >
       ))
-    }
-    </List>
+    } </List>
   )
 
   const NoOffersMessage = () => (

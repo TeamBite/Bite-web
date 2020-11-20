@@ -4,9 +4,9 @@ import { Segment, Header, Image, Icon, Divider } from 'semantic-ui-react'
 import './VendorPage.css'
 import store from '../firebase/store'
 import OffersList from '../components/Vendors/OffersList'
+
 const VendorPage = ({ id }) => {
   const [vendor, setVendor] = useState(null)
-
   useEffect(() => {
     const getVendor = async () => {
       try {
@@ -33,7 +33,7 @@ const VendorPage = ({ id }) => {
           <a href={`tel:${vendor.phoneNumber}`}>{vendor.phoneNumber}</a>
         </Segment>
         <Segment>
-          <OffersList offers={vendor.offers} />
+          <OffersList vendorId={id} offers={vendor.offers} />
         </Segment>
       </Segment >
     )

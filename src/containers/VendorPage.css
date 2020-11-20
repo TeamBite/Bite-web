@@ -8,8 +8,31 @@
   object-fit: cover;
 }
 
-.offer-thumbnail-img {
+/*
+  Overriding/copying Semantic UI because intermediary a/Link element 
+  ruins semantic ui children selector chain
+*/
+.item .item__img {
   width: 40%;
   height: 80px;
   object-fit: cover;
+  display: inline-block !important
+}
+
+.item .item__content {
+  display: inline-block;
+  padding: 0em 0em 0em 0.5em;
+  vertical-align: top;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.item:hover .item__content {
+  color: rgb(65, 131, 196);
+}
+.item .item__header {
+  font-weight: bold;
+}
+
+.item:hover {
+  background-color: rgba(135,135, 135, .07)
 }

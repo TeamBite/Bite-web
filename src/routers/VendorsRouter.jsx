@@ -14,7 +14,7 @@ const VendorsRouter = () => {
         <Route exact path={url}>
           <Vendors />
         </Route>
-        <Route exact path={`${url}/:id`}>
+        <Route path={`${url}/:vendorId`}>
           <VendorRouter />
         </Route>
         <NotFound404 />

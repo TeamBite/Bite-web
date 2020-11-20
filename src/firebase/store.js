@@ -36,8 +36,21 @@ export const Vendors = {
   }
 }
 
+const Offers = {
+  get: async (vendorId, offerId) => {
+    try {
+      let offerRef = db.doc(`venues/${vendorId}/offers/${offerId}`)
+      let offer = (await offerRef.get()).data()
+      return offer
+    } catch (err) {
+      console.log('err', err)
+    }
+  }
+}
+
 const store = {
-  Vendors
+  Vendors,
+  Offers
 }
 
 export default store;
