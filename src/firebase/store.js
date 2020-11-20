@@ -1,6 +1,7 @@
 import firebase from './'
 import 'firebase/firestore'
 
+const { Timestamp } = firebase.firestore
 const db = firebase.firestore()
 
 export const Vendors = {
@@ -24,10 +25,10 @@ export const Vendors = {
 
       let offersRef = await docRef.collection('offers').get()
       let offers = offersRef.docs.map(doc => doc.data())
-
+      let remainingOffers = offers.filter(offer => offer.endTime.valueOf() > Timestamp.now().valueOf())
       return {
         ...doc,
-        offers
+        offers: remainingOffers
       }
     } catch (err) {
       console.log('err', err)
