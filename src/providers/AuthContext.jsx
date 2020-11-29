@@ -8,9 +8,8 @@ const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null)
 
   const updateUser = (user) => {
-    console.log('onAuthStateChanged =>', user)
     if (user) {
-      setCurrentUser(user);
+      setCurrentUser(user.toJSON());
     } else {
       setCurrentUser(null);
     }

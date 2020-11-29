@@ -33,6 +33,21 @@ export const Vendors = {
     } catch (err) {
       console.log('err', err)
     }
+  },
+
+  getPickupInstructions: async function (id) {
+    try {
+      let venueRef = db.collection('vanues').doc(id)
+      let venue = (await venueRef.get({ source: 'cache' })).data()
+      return venue.pickupInstructions
+    } catch (err) {
+      if (err.name === 'FirebaseError' && err.code === 'unavailable') {
+        let venue = await this.getById(id)
+        return venue.pickupInstructions
+      } else {
+        console.log('err =>', err)
+      }
+    }
   }
 }
 
