@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { Header, Image, Icon, Segment, Button, Divider } from 'semantic-ui-react';
+import { Header, Image, Icon, Segment, Button, Divider, Message } from 'semantic-ui-react';
 import store from '../firebase/store';
 
 const OfferPage = ({ vendorId }) => {
@@ -33,6 +33,15 @@ const OfferPage = ({ vendorId }) => {
         {offer.remainingMeals} {offer.nameOfOffer} portions remaining
         <Divider />
         <Button primary fluid>Claim Offer</Button>
+      </Segment>
+      <Segment>
+        <Header as="h2">Details</Header>
+        <Message
+          info={true}
+          icon="shopping bag"
+          header="Offer Details"
+          content="Will appear here once an offer is claimed"
+        />
       </Segment>
 
     </Segment>
