@@ -2,12 +2,6 @@
    min-height: 100vh;
 }
 
-.vendor-img {
-  width: 100vw;
-  height: 33.33vh;
-  object-fit: cover;
-}
-
 /*
   Overriding/copying Semantic UI because intermediary a/Link element 
   ruins semantic ui children selector chain

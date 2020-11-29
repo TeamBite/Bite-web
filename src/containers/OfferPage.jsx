@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { Header } from 'semantic-ui-react';
+import { Header, Image, Icon, Segment, Button, Divider } from 'semantic-ui-react';
 import store from '../firebase/store';
 
 const OfferPage = ({ vendorId }) => {
@@ -23,9 +23,19 @@ const OfferPage = ({ vendorId }) => {
   if (!offer) return <p>Loading...</p>
 
   return (
-    <div>
-      <Header as="h1">{offer.nameOfOffer}</Header>
-    </div>
+    <Segment className="page-container">
+      <Segment>
+        <Header as="h1">{offer.nameOfOffer}</Header>
+        <Image className="cover-img" src={offer.offerImage} />
+      </Segment>
+      <Segment>
+        <Icon name="food" />
+        {offer.remainingMeals} {offer.nameOfOffer} portions remaining
+        <Divider />
+        <Button primary fluid>Claim Offer</Button>
+      </Segment>
+
+    </Segment>
   )
 }
 

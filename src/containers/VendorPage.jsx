@@ -23,7 +23,7 @@ const VendorPage = ({ id }) => {
       <Segment className="page-container">
         <Segment>
           <Header as="h1">{vendor.name}</Header>
-          <Image className="vendor-img" src={vendor.venueImage} />
+          <Image className="cover-img" src={vendor.venueImage} />
         </Segment>
         <Segment>
           <Icon name="map pin" />

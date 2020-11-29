@@ -6,6 +6,7 @@ import NotFound404 from './components/NotFound404';
 import AuthProvider from './providers/AuthContext';
 import PatronRouter from './routers/PatronRouter';
 import VendorsRouter from './routers/VendorsRouter';
+import './App.css';
 
 function App() {
   return (

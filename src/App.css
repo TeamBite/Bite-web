@@ -1,0 +1,5 @@
+.cover-img {
+  width: 100vw;
+  height: 33.33vh;
+  object-fit: cover;
+}
