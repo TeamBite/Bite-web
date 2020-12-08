@@ -27,6 +27,8 @@ const PatronAuth = () => {
 
   const handleLogIn = async () => {
     const verifier = window.recaptchaVerifier
+    const smsConfirmationResult = window.confirm("Standard SMS rates may apply");
+    if(smsConfirmationResult === false)return;
     try {
       const confirmationResult = await logInPatron(`+1${phoneNumber}`, verifier)
       window.confirmationResult = confirmationResult // Used by VerificationCodeForm
