@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useContext }  from 'react'
 import { Button, Grid, Message } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import LandingLayout from './LandingLayout'
-
+import { AuthContext } from '../providers/AuthContext'
+import {Redirect,} from 'react-router-dom'
 const Landing = () => {
-  return (
+  const { currentUser } = useContext(AuthContext)
+  if(currentUser){
+    return <Redirect to="/vendors" />
+  }
+  else {
+    return (
     <LandingLayout>
       <Message>
         <Message.Header>Welcome!</Message.Header>
@@ -20,6 +26,7 @@ const Landing = () => {
       </Grid>
     </LandingLayout >
   )
+}
 }
 
 export default Landing
