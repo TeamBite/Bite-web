@@ -4,8 +4,8 @@ import 'semantic-ui-less/semantic.less'
 import Landing from './components/Landing';
 import NotFound404 from './components/NotFound404';
 import AuthProvider from './providers/AuthContext';
-import PatronRouter from './routers/PatronRouter';
 import VendorsRouter from './routers/VendorsRouter';
+import AuthRouter from './routers/AuthRouter';
 import './App.css';
 
 function App() {
@@ -16,8 +16,8 @@ function App() {
           <Route exact path="/">
             <Landing />
           </Route>
-          <Route path="/patron">
-            <PatronRouter />
+          <Route path="/auth">
+            <AuthRouter />
           </Route>
           <Route path="/vendors">
             <VendorsRouter />

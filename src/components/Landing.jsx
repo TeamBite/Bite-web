@@ -18,10 +18,10 @@ const Landing = () => {
       </Message>
       <Grid padded>
         <Grid.Row>
-          <Button primary fluid as={Link} to="/patron">I'm a Patron</Button>
+          <Button primary fluid as={Link} to="/auth/patron">I'm a Patron</Button>
         </Grid.Row>
         <Grid.Row>
-          <Button basic fluid color="pink" as={Link} to="/vendor">I'm a Vendor</Button>
+          <Button basic fluid color="pink" as={Link} to="/auth/vendor">I'm a Vendor</Button>
         </Grid.Row>
       </Grid>
     </LandingLayout >
