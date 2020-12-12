@@ -1,11 +1,11 @@
 import React from 'react'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
-import LandingLayout from '../components/LandingLayout'
-import VerificationCodeForm from '../components/Patron/VerificationCodeForm'
-import NotFound404 from '../components/NotFound404'
-import PatronAuth from '../containers/PatronAuth'
+import LandingLayout from '../../components/LandingLayout'
+import VerificationCodeForm from '../../components/Patron/VerificationCodeForm'
+import NotFound404 from '../../components/NotFound404'
+import PatronAuth from '../../containers/PatronAuth'
 
-const PatonRouter = () => {
+const PatronAuthRouter = () => {
   const { path } = useRouteMatch()
   return (
     <LandingLayout>
@@ -22,4 +22,4 @@ const PatonRouter = () => {
   )
 }
 
-export default PatonRouter
+export default PatronAuthRouter

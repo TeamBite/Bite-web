@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Switch, Route, useRouteMatch, Redirect } from 'react-router-dom';
-import PatronRouter from '../routers/PatronRouter';
-import { AuthContext }  from '../providers/AuthContext';
+import PatronAuthRouter from './Auth/PatronAuthRouter';
+import { AuthContext } from '../providers/AuthContext';
 
 const AuthRouter = () => {
   const { path } = useRouteMatch();
@@ -14,8 +14,8 @@ const AuthRouter = () => {
   return (
     <Switch>
       <Route path={`${path}/patron`}>
-        <PatronRouter />
-      </Route> 
+        <PatronAuthRouter />
+      </Route>
       <Redirect to="/" />
     </Switch>
   )
