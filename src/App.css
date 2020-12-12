@@ -1,3 +1,8 @@
+.App {
+  max-width: 500px;
+  margin:0 auto;
+}
+
 .cover-img {
   width: 100vw;
   height: 33.33vh;
