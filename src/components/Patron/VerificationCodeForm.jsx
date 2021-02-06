@@ -31,7 +31,7 @@ const VerificationCodeForm = () => {
 
   return (
     <>
-      <Message>
+      <Message error={error}>
         <Message.Header>{message.title}</Message.Header>
         <p>{message.details}</p>
       </Message>
