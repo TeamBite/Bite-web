@@ -4,8 +4,9 @@ import { Header, Image, Icon, Segment, Button, Divider, Message } from 'semantic
 import QRCode from 'qrcode.react';
 import store from '../firebase/store';
 import { AuthContext } from '../providers/AuthContext';
+import "./OfferPage.css";
 
-const OfferPage = ({ vendorId }) => {
+const OfferPage = ({ vendorId, vendor }) => {
   const [offer, setOffer] = useState(null)
   const [pickupInstructions, setPickupInstructions] = useState('')
   const [claimedOffer, setClaimedOffer] = useState(false)
@@ -41,13 +42,17 @@ const OfferPage = ({ vendorId }) => {
   const handleClaimButton = (e) => {
     let date = (new Date()).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })
     setCodeValue(`${offer.nameOfOffer} ${date} ${offerId} ${currentUser.uid}`)
-    setClaimedOffer(!claimedOffer)
+    setClaimedOffer(true)
+  }
+
+  const handleForfeitOffer = (e) => {
+    setClaimedOffer(false)
   }
 
   const OfferDetails = () => {
     if (claimedOffer) {
       return (
-        <>
+        <div className="offer-page">
           <Segment>
             <Header as="h3">Pick-Up Instructions</Header>
             <p>{pickupInstructions}</p>
@@ -57,8 +62,25 @@ const OfferPage = ({ vendorId }) => {
             <p>Present the code below to the vendor to claim your offer.</p>
             <QRCode value={codeValue} renderAs="svg" height="100%" width="100%" />
           </Segment>
-
-        </>
+          <Segment>
+            <Header as="h3">Map</Header>
+            <p>You can get see the location of this vendor and get directions to it.</p>
+            <iframe
+              className="map"
+              title={`Map with pin at address ${vendor.address}`}
+              src={`https://www.google.com/maps/embed/v1/place?q=${vendor.address}&key=AIzaSyCWhS0deQnzBtaS1N2cv55Rl3uTDeKGSP8`}
+            />
+            <Button
+              basic
+              fluid
+              color="pink"
+              as='a'
+              href={`https://www.google.com/maps/dir//${vendor.address}`}
+            >
+              Get Directions
+              </Button>
+          </Segment>
+        </div>
       )
     } else {
       return (
@@ -84,7 +106,10 @@ const OfferPage = ({ vendorId }) => {
         <Icon name="food" />
         {offer.remainingMeals} {offer.nameOfOffer} portions remaining
         <Divider />
-        <Button primary fluid onClick={handleClaimButton}>Claim Offer</Button>
+        {claimedOffer
+          ? <Button primary fluid onClick={handleForfeitOffer}>Forfeit Offer</Button>
+          : <Button primary fluid onClick={handleClaimButton}>Claim Offer</Button>
+        }
       </Segment>
       <Segment>
         <Header as="h2">Details</Header>

@@ -1,0 +1,5 @@
+.offer-page .map {
+  width: 100%;
+  border: 0;
+  height: 410px; /* Same as height of QR code */
+}
